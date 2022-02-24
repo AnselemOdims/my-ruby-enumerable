@@ -9,5 +9,11 @@ module MyEnumerable
     result = false
     each { |item| result = true if block.call(item) }
     result
-  end 
+  end
+
+  def filter(&block)
+    result = []
+    each { |item| result << item if block.call(item) }
+    result
+  end
 end
